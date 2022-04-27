@@ -1,7 +1,7 @@
 const notes = require('express').Router();
 // const notesDb = require('../../../db/db.json')
 const notesDb = require('../db/db.json')
-const uuid = require('../../../helpers/uuid')
+const uuid = require('../helpers/uuid')
 const fs = require('fs')
 const path = require('path')
 

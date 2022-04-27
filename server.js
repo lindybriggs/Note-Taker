@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 // Importing api
-const api = require('./public/assets/routes/api');
+const api = require('./routes/api');
 
 // Helper method for generating unique ids
 
@@ -20,12 +20,12 @@ app.use('/api', api);
 
 // GET Route for homepage
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '../index.html'))
+  res.sendFile(path.join(__dirname, './public/index.html'))
 );
 
 // GET Route for notes page
 app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '../notes.html'))
+  res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
 app.listen(PORT, () =>
