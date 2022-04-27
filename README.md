@@ -10,6 +10,11 @@
 
 * The utilization of different routes and HTTP requests makes this possible.
 
+## Links
+
+  * [Github](https://github.com/lindybriggs/Note-Taker)
+  * [Heroku Deployed App](https://limitless-wave-23866.herokuapp.com/)
+
 ## Usage
 
 * Open the application on your browser at http://localhost:3001 
