@@ -25,11 +25,11 @@ notes.post('/', (req, res) => {
         };
         notesDb.push(newNote);
         let notesArray = JSON.stringify(notesDb);
-        
+
 
         fs.writeFile(path.join(__dirname, '../db/db.json'), notesArray, (err) => {
             if (err) throw err;
-            console.log(`Review for ${newReview.product} has been written to JSON file`)
+            console.log(`Review for ${newNote.title} has been written to JSON file`)
         });
         const response = {
             status: 'success',
@@ -44,13 +44,14 @@ notes.post('/', (req, res) => {
 }
 );
 
-notes.delete('/:id', (req, res)=> {
+notes.delete('/:id', (req, res) => {
     const requestedId = req.params.id
 
     for (let i = 0; i < notesDb.length; i++) {
-        if (requestedId === notesDb[i].id)
-        notesDb.splice(i, 1);
-        break;
+        if (requestedId === notesDb[i].id) {
+            notesDb.splice(i, 1);
+            break;
+        }
     }
 
 })
