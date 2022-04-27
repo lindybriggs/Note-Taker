@@ -16,9 +16,8 @@ app.use(express.static('public'));
 // With /api route, sent to api in routes
 app.use('/api', api);
 
-
-
 // GET Route for homepage
+// app.use(express.static('public')); already does this essentially
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, './public/index.html'))
 );
@@ -26,6 +25,11 @@ app.get('/', (req, res) =>
 // GET Route for notes page
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, './public/notes.html'))
+);
+
+// GET Route for homepage upon wildcard entry
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, './public/index.html'))
 );
 
 app.listen(PORT, () =>
