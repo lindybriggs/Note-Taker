@@ -21,7 +21,7 @@ notes.post('/', (req, res) => {
         const newNote = {
             title,
             text,
-            note_id: uuid()
+            id: uuid()
         };
         notesDb.push(newNote);
         let notesArray = JSON.stringify(notesDb);
@@ -43,6 +43,18 @@ notes.post('/', (req, res) => {
     }
 }
 );
+
+notes.delete('/:id', (req, res)=> {
+    const requestedId = req.params.id
+
+    for (let i = 0; i < notesDb.length; i++) {
+        if (requestedId === notesDb[i].id)
+        notesDb.splice(i, 1);
+        break;
+    }
+
+})
+// * `DELETE /api/notes/:id` should receive a query parameter that contains the id of a note to delete. To delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
 
 module.exports = notes;
 

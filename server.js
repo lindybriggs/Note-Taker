@@ -5,7 +5,7 @@ const api = require('./routes/api');
 
 // Helper method for generating unique ids
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
